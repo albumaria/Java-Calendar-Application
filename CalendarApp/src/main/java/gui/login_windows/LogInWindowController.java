@@ -1,30 +1,41 @@
 package gui.login_windows;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import login_window.*;
+import javafx.stage.Stage;
+import login_handler.*;
+
+import java.io.IOException;
 
 public class LogInWindowController {
-    private ILoginDBHandler loginHandler;
+    private ILoginHandler loginHandler;
+    private Stage stage;
 
     public LogInWindowController() {
-        this.loginHandler = new LoginDBHandler();
+        this.loginHandler = new LoginHandler("log_files/login.log");
     }
 
     public TextField usernameTextField;
-    public TextField passwordTextField;
+    public PasswordField passwordTextField;
+
 
     @FXML
-    private void logInButtonHandler() {
+    private void logInButtonHandler() throws IOException {
         String username = this.usernameTextField.getText();
         String password = this.passwordTextField.getText();
 
         if (!username.isEmpty() && !password.isEmpty()) {
             if(this.loginHandler.correctLogin(username, password)) {
-                System.out.println("Connecting user..");
+                this.openCalendarWindow();
+                this.stage.close();
+                this.loginHandler.logToFile("User " + username + " connected to the app");
             }
             else {
-                System.out.println("Incorrect login");
+                this.showErrorWindow("Login Error", "Username or password incorrect!");
             }
 
         }
@@ -36,17 +47,49 @@ public class LogInWindowController {
         String password = this.passwordTextField.getText();
 
         if (!username.isEmpty() && !password.isEmpty()) {
-            if (!this.loginHandler.userExists(username))
+            if (!this.loginHandler.userExists(username)) {
                 this.loginHandler.signUpUser(username, password);
+                this.showConfirmationWindow("Success", "User account created!");
+                this.loginHandler.logToFile("User " + username + " signed up to the app");
+            }
             else {
-                System.out.println("User already exists");
+                this.showErrorWindow("Sign Up Error", "User with this username already exists!");
             }
 
         }
     }
 
+    private void openCalendarWindow() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/CalendarWindow.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Calendar Window");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    private void showErrorWindow(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void showConfirmationWindow(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
     public void closeConnection() {
         this.loginHandler.closeConnection();
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 
 }

@@ -8,25 +8,26 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LogInWindow extends Application {
+    private FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/LogInWindow.fxml"));
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/LogInWindow.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 400);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Please Log In");
         stage.setScene(scene);
 
+
         LogInWindowController controller = fxmlLoader.getController();
-        stage.setOnCloseRequest(_ -> {
-            controller.closeConnection();
-        });
+
+        controller.setStage(stage);
 
         stage.show();
     }
 
     @Override
     public void stop() {
-
+        LogInWindowController controller = fxmlLoader.getController();
+        controller.closeConnection();
     }
 
     public static void main(String[] args) {

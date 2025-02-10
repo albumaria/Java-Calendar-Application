@@ -1,20 +1,22 @@
-package login_window;
+package login_handler;
 
 
 import db_connection.DatabaseConnection;
+import logging.*;
+import java.security.*;
+import java.sql.*;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-public class LoginDBHandler implements ILoginDBHandler {
+public class LoginHandler implements ILoginHandler {
     private Connection conn;
+    private ILoggingHandler loggerHandler;
 
-    public LoginDBHandler() {
+    public LoginHandler(String logFileName) {
         this.conn = DatabaseConnection.connect();
+        this.loggerHandler = new LoggingHandler(logFileName);
+    }
+
+    public void logToFile(String message) {
+        this.loggerHandler.createLogText(message);
     }
 
     public void closeConnection() {
@@ -22,7 +24,7 @@ public class LoginDBHandler implements ILoginDBHandler {
             if (this.conn != null)
                 this.conn.close();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            this.loggerHandler.createLogText("Unable to close connection properly");
         }
     }
 
@@ -41,7 +43,7 @@ public class LoginDBHandler implements ILoginDBHandler {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            this.loggerHandler.createLogText("Unable to check whether user with username " + username + " exists");
         }
 
         return false;
@@ -65,7 +67,7 @@ public class LoginDBHandler implements ILoginDBHandler {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            this.loggerHandler.createLogText("Unable to check whether user with username " + username + " logged in correctly");
         }
 
         return false;
@@ -85,7 +87,7 @@ public class LoginDBHandler implements ILoginDBHandler {
             System.out.println("User registered successfully!");
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            this.loggerHandler.createLogText("Unable to sign up user with username " + username);
         }
 
     }
@@ -102,7 +104,7 @@ public class LoginDBHandler implements ILoginDBHandler {
             return sb.toString();
 
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            this.loggerHandler.createLogText("Password hashing error");
             return null;
         }
     }

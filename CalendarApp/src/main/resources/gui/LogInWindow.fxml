@@ -3,40 +3,45 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="509.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.login_windows.LogInWindowController">
+<AnchorPane prefHeight="475.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.login_windows.LogInWindowController">
    <children>
-      <GridPane layoutX="131.0" layoutY="143.0" prefHeight="509.0" prefWidth="662.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane alignment="CENTER" layoutX="131.0" layoutY="143.0" prefHeight="600.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="218.66666666666669" minHeight="10.0" prefHeight="212.00001017252606" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="210.66665649414062" minHeight="0.0" prefHeight="51.333323160807254" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="51.666666666666686" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="199.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="218.66666666666669" minHeight="10.0" prefHeight="175.33332316080728" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="210.66665649414062" minHeight="0.0" prefHeight="68.66667683919272" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="79.66668701171875" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="161.66664632161456" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="helau please log in" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label text="Calendar App" textFill="#ff8fdd" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="41.0" />
+               </font></Label>
             <TextField fx:id="usernameTextField" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="200.0" right="200.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="passwordTextField" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <PasswordField fx:id="passwordTextField" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="200.0" right="200.0" />
                </GridPane.margin>
-            </TextField>
-            <GridPane GridPane.rowIndex="3">
+            </PasswordField>
+            <GridPane GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="331.0" minWidth="10.0" prefWidth="331.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="331.0" minWidth="10.0" prefWidth="331.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="391.99997965494794" minWidth="10.0" prefWidth="335.99997965494794" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.6667073567708" minWidth="10.0" prefWidth="350.00002034505206" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
