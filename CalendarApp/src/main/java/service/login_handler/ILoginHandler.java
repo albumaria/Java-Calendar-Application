@@ -1,4 +1,4 @@
-package login_handler;
+package service.login_handler;
 
 public interface ILoginHandler {
     void signUpUser(String username, String password);

@@ -13,52 +13,56 @@
 
 <AnchorPane prefHeight="475.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.login_windows.LogInWindowController">
    <children>
-      <GridPane alignment="CENTER" layoutX="131.0" layoutY="143.0" prefHeight="600.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane alignment="CENTER" layoutX="131.0" layoutY="143.0" prefHeight="475.0" prefWidth="705.0" scaleShape="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="218.66666666666669" minHeight="10.0" prefHeight="175.33332316080728" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="210.66665649414062" minHeight="0.0" prefHeight="68.66667683919272" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="79.66668701171875" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="161.66664632161456" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="210.66665649414062" minHeight="0.0" prefHeight="68.66667683919272" valignment="CENTER" vgrow="NEVER" />
+          <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="69.66666666666669" valignment="CENTER" vgrow="NEVER" />
+            <RowConstraints maxHeight="370.0" minHeight="10.0" prefHeight="165.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Calendar App" textFill="#ff8fdd" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="41.0" />
                </font></Label>
-            <TextField fx:id="usernameTextField" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets left="200.0" right="200.0" />
-               </GridPane.margin>
-            </TextField>
-            <PasswordField fx:id="passwordTextField" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets left="200.0" right="200.0" />
-               </GridPane.margin>
-            </PasswordField>
-            <GridPane GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="391.99997965494794" minWidth="10.0" prefWidth="335.99997965494794" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.6667073567708" minWidth="10.0" prefWidth="350.00002034505206" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
                <children>
-                  <Button mnemonicParsing="false" onAction="#logInButtonHandler" text="Log In" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets right="50.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#signUpButtonHandler" text="Sign Up" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets left="50.0" />
-                     </GridPane.margin>
-                  </Button>
+                  <GridPane alignment="CENTER" layoutX="154.0" layoutY="65.0" scaleShape="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="354.66668701171875" minWidth="10.0" prefWidth="339.9999593098958" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="387.3333333333333" minWidth="6.666638692220033" prefWidth="338.6667073567708" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#logInButtonHandler" text="Log In" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                           <GridPane.margin>
+                              <Insets right="50.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#signUpButtonHandler" text="Sign Up" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                           <GridPane.margin>
+                              <Insets left="50.0" />
+                           </GridPane.margin>
+                        </Button>
+                     </children>
+                  </GridPane>
                </children>
-            </GridPane>
+            </AnchorPane>
+            <AnchorPane prefHeight="83.0" prefWidth="705.0" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="usernameTextField" cacheShape="false" layoutX="98.0" layoutY="10.0" scaleShape="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="20.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="40.0" prefWidth="705.0" GridPane.rowIndex="2">
+               <children>
+                  <PasswordField fx:id="passwordTextField" cacheShape="false" layoutX="297.0" layoutY="38.0" prefHeight="25.0" prefWidth="305.0" scaleShape="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="20.0" />
+               </children>
+            </AnchorPane>
          </children>
       </GridPane>
    </children>

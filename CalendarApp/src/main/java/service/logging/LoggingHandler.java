@@ -1,8 +1,7 @@
-package logging;
+package service.logging;
 
 
 import java.io.*;
-import java.nio.file.*;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 

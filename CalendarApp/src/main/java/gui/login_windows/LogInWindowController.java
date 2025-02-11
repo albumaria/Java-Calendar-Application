@@ -7,7 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import login_handler.*;
+import service.login_handler.*;
 
 import java.io.IOException;
 

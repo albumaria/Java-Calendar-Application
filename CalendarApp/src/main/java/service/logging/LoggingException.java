@@ -1,4 +1,4 @@
-package logging;
+package service.logging;
 
 public class LoggingException extends RuntimeException {
     public LoggingException(String message) {

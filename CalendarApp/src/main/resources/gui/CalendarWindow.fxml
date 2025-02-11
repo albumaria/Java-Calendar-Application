@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import atlantafx.base.controls.Calendar?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Ellipse?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffc3fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.calendar_windows.CalendarWindowController">
+<AnchorPane prefHeight="694.0" prefWidth="868.0" style="-fx-background-color: #ffc3fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.calendar_windows.CalendarWindowController">
    <children>
-      <Ellipse fill="#ffc3fa" layoutX="163.0" layoutY="141.0" radiusX="100.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE" />
+      <Calendar fx:id="calendar" cache="true" cacheShape="false" layoutX="142.0" layoutY="237.0" prefHeight="221.0" prefWidth="585.0" scaleShape="false" snapToPixel="false" AnchorPane.bottomAnchor="236.33333333333337" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="141.33333333333337" AnchorPane.topAnchor="237.0" />
    </children>
 </AnchorPane>

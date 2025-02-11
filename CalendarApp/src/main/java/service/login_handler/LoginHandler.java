@@ -1,8 +1,8 @@
-package login_handler;
+package service.login_handler;
 
 
-import db_connection.DatabaseConnection;
-import logging.*;
+import service.db_connection.DatabaseConnection;
+import service.logging.*;
 import java.security.*;
 import java.sql.*;
 

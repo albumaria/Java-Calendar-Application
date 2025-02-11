@@ -1,5 +1,4 @@
 module com.example.CalendarApp {
-    requires javafx.controls;
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
@@ -8,6 +7,7 @@ module com.example.CalendarApp {
     requires java.sql;
     requires javafx.media;
     requires java.desktop;
+    requires atlantafx.base;
 
     opens gui to javafx.fxml;
     exports gui.login_windows;
